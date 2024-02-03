@@ -4,8 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyPY4zBLZT3D0uzi4rFOT9lC",
-      "include_colab_link": true
+      "authorship_tag": "ABX9TyNZ8mqiZNpe8mQD+SD+jBmR"
     },
     "kernelspec": {
       "name": "python3",
@@ -16,16 +15,6 @@
     }
   },
   "cells": [
-    {
-      "cell_type": "markdown",
-      "metadata": {
-        "id": "view-in-github",
-        "colab_type": "text"
-      },
-      "source": [
-        "<a href=\"https://colab.research.google.com/github/andreac941/Pruebas_Software_Aseguramiento_Calidad_A01034993/blob/main/computeStatistics.py\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
-      ]
-    },
     {
       "cell_type": "code",
       "source": [
@@ -117,26 +106,26 @@
         "        result_file.write(f\"Standard Deviation: {std_deviation}\\n\")\n",
         "        result_file.write(f\"Time Elapsed: {elapsed_time} seconds\\n\")\n",
         "\n",
-        "# Simulating command-line argument\n",
-        "your_file_content = \"\"\"1.2\n",
-        "2.5\n",
-        "3.8\n",
-        "4.1\n",
-        "5.4\n",
-        "invalid1\n",
-        "invalid2\n",
-        "\"\"\"\n",
+        "if __name__ == \"__main__\":\n",
+        "    if len(sys.argv) != 2:\n",
+        "        print(\"Usage: python computeStatistics.py TC1.txt\")\n",
+        "        sys.exit(1)\n",
         "\n",
-        "with open(\"TC7.txt\", \"r\") as file: #NO APLICA PARA CONSOLA PYTHON\n",
-        "    your_file_content = file.read()\n",
-        "data = read_file(your_file_content)\n",
+        "    input_file_path = sys.argv[1]\n",
         "\n",
-        "if data:\n",
-        "    mean, median, mode, variance, std_deviation, elapsed_time = calculate_statistics(data)\n",
+        "    data = read_file(input_file_path)\n",
         "\n",
-        "    print_results(mean, median, mode, variance, std_deviation, elapsed_time)\n",
         "\n",
-        "    write_results_to_file(\"StatisticsResults.txt\", mean, median, mode, variance, std_deviation, elapsed_time)"
+        "#with open(\"TC7.txt\", \"r\") as file: #NO APLICA PARA CONSOLA PYTHON\n",
+        "#    your_file_content = file.read()\n",
+        "#data = read_file(your_file_content)\n",
+        "\n",
+        "    if data:\n",
+        "        mean, median, mode, variance, std_deviation, elapsed_time = calculate_statistics(data)\n",
+        "\n",
+        "        print_results(mean, median, mode, variance, std_deviation, elapsed_time)\n",
+        "\n",
+        "        write_results_to_file(\"StatisticsResults.txt\", mean, median, mode, variance, std_deviation, elapsed_time)"
       ],
       "metadata": {
         "colab": {
