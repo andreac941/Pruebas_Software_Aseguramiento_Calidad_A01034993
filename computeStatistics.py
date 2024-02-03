@@ -4,7 +4,8 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyP0gGM9QxE/ydfCX662zQvz"
+      "authorship_tag": "ABX9TyNI0+XbRxacXtZK3X5HLjB6",
+      "include_colab_link": true
     },
     "kernelspec": {
       "name": "python3",
@@ -15,6 +16,16 @@
     }
   },
   "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/andreac941/Pruebas_Software_Aseguramiento_Calidad_A01034993/blob/main/computeStatistics.py\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
     {
       "cell_type": "code",
       "source": [
@@ -139,12 +150,10 @@
         "\n",
         "    input_file_path = sys.argv[1]\n",
         "\n",
-        "    data = read_file(input_file_path)\n",
+        "    with open(input_file_path, \"r\") as file:\n",
+        "        file_content = file.read()\n",
         "\n",
-        "\n",
-        "#with open(\"TC7.txt\", \"r\") as file: #NO APLICA PARA CONSOLA PYTHON\n",
-        "#    your_file_content = file.read()\n",
-        "#data = read_file(your_file_content)\n",
+        "    data = read_file(file_content)\n",
         "\n",
         "    if data is not None:\n",
         "        mean, median, mode, variance, std_deviation, elapsed_time = calculate_statistics(data)\n",
@@ -157,29 +166,10 @@
         "        print(\"Error: No valid numeric data found in the file.\")"
       ],
       "metadata": {
-        "colab": {
-          "base_uri": "https://localhost:8080/"
-        },
-        "id": "WH3FHKLBwywR",
-        "outputId": "be657a5c-20f2-45b3-b4f7-1559e5f9c01b"
+        "id": "WH3FHKLBwywR"
       },
-      "execution_count": 5,
-      "outputs": [
-        {
-          "output_type": "stream",
-          "name": "stdout",
-          "text": [
-            "Error in line 183: Contains non-numeric or invalid data: ABBA. Skipping this line.\n",
-            "Error in line 229: Contains non-numeric or invalid data: ERROR. Skipping this line.\n",
-            "Mean: 2.474673954997149e+20\n",
-            "Median: 2.4664097307429e+20\n",
-            "Mode: 1.57638329490099e+20\n",
-            "Variance: 2.091243115380632e+40\n",
-            "Standard Deviation: 1.4460564700984703e+20\n",
-            "Time Elapsed: 0.012381553649902344 seconds\n"
-          ]
-        }
-      ]
+      "execution_count": null,
+      "outputs": []
     }
   ]
 }
