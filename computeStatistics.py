@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyNZ8mqiZNpe8mQD+SD+jBmR"
+      "authorship_tag": "ABX9TyP0gGM9QxE/ydfCX662zQvz"
     },
     "kernelspec": {
       "name": "python3",
@@ -18,9 +18,35 @@
     {
       "cell_type": "code",
       "source": [
+        "!pip install sys"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "VQFMFu-WlFTh",
+        "outputId": "a92dc981-762b-46d2-fb4b-8b8f141afe43"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[31mERROR: Could not find a version that satisfies the requirement sys (from versions: none)\u001b[0m\u001b[31m\n",
+            "\u001b[0m\u001b[31mERROR: No matching distribution found for sys\u001b[0m\u001b[31m\n",
+            "\u001b[0m"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
         "import time\n",
         "import statistics\n",
         "import re\n",
+        "import sys\n",
         "\n",
         "def contains_valid_data(line):\n",
         "    # Check if a line contains valid data (numeric or string)\n",
@@ -120,12 +146,15 @@
         "#    your_file_content = file.read()\n",
         "#data = read_file(your_file_content)\n",
         "\n",
-        "    if data:\n",
+        "    if data is not None:\n",
         "        mean, median, mode, variance, std_deviation, elapsed_time = calculate_statistics(data)\n",
         "\n",
         "        print_results(mean, median, mode, variance, std_deviation, elapsed_time)\n",
         "\n",
-        "        write_results_to_file(\"StatisticsResults.txt\", mean, median, mode, variance, std_deviation, elapsed_time)"
+        "        # Write results to a file\n",
+        "        write_results_to_file(\"StatisticsResults.txt\", mean, median, mode, variance, std_deviation, elapsed_time)\n",
+        "    else:\n",
+        "        print(\"Error: No valid numeric data found in the file.\")"
       ],
       "metadata": {
         "colab": {
